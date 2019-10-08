@@ -1,0 +1,78 @@
+{
+    "common": {
+        "name": "merakicmx",
+        "version": "0.0.1",
+        "news": {
+            "0.0.1": {
+                "en": "initial release",
+                "de": "Erstveröffentlichung",
+                "ru": "Начальная версия",
+                "pt": "lançamento inicial",
+                "nl": "Eerste uitgave",
+                "fr": "Première version",
+                "it": "Versione iniziale",
+                "es": "Versión inicial",
+                "pl": "Pierwsze wydanie",
+                "zh-cn": "首次出版"
+            }
+        },
+        "title": "Meraki CMX Scanning API Receiver",
+        "titleLang": {
+            "en": "Meraki CMX Scanning API Receiver",
+            "de": "Meraki CMX-Scan-API-Empfänger",
+            "ru": "Meraki CMX Scanning API Receiver",
+            "pt": "Receptor da API de digitalização Meraki CMX",
+            "nl": "Meraki CMX Scanning API-ontvanger",
+            "fr": "Récepteur API d'analyse Meraki CMX",
+            "it": "Ricevitore API di scansione Meraki CMX",
+            "es": "Receptor API de escaneo Meraki CMX",
+            "pl": "Odbiornik skanujący API Meraki CMX",
+            "zh-cn": "Meraki CMX扫描API接收器"
+        },
+        "desc": {
+            "en": "merakicmx",
+            "de": "merakicmx",
+            "ru": "merakicmx",
+            "pt": "merakicmx",
+            "nl": "merakicmx",
+            "fr": "Merakicmx",
+            "it": "merakicmx",
+            "es": "merakicmx",
+            "pl": "merakicmx",
+            "zh-cn": "merakicmx"
+        },
+        "authors": [
+            "MiGoller <goller.michael@gmail.com>"
+        ],
+        "keywords": [
+            "wlan",
+            "bluetooth",
+            "ble",
+            "meraki",
+            "cmx"
+        ],
+        "license": "MIT",
+        "platform": "Javascript/Node.js",
+        "main": "main.js",
+        "icon": "merakicmx.png",
+        "enabled": true,
+        "extIcon": "https://raw.githubusercontent.com/MiGoller/ioBroker.merakicmx/master/admin/merakicmx.png",
+        "readme": "https://github.com/MiGoller/ioBroker.merakicmx/blob/master/README.md",
+        "loglevel": "info",
+        "mode": "daemon",
+        "type": "network",
+        "compact": true,
+        "materialize": true,
+        "dependencies": [
+            {
+                "js-controller": ">=1.4.2"
+            }
+        ]
+    },
+    "native": {
+        "option1": true,
+        "option2": "42"
+    },
+    "objects": [],
+    "instanceObjects": []
+}
