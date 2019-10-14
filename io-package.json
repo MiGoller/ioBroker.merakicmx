@@ -70,9 +70,67 @@
         ]
     },
     "native": {
-        "option1": true,
-        "option2": "42"
+        "validator": "Your CMX validator",
+        "secret": "Your CMX secret",
+        "bind": "",
+        "port": 1890,
+        "route": "/cmx",
+        "scan_wifi_connectedDevicesOnly": true,
+        "scan_wifi_regex": "",
+        "scan_bluetooth_regex": "",
+        "scan_stale_timeout": 150,
+        "scan_check_for_stale_devices": 15
     },
     "objects": [],
-    "instanceObjects": []
+    "instanceObjects": [
+        {
+			"_id": "info",
+			"type": "channel",
+			"common": {
+				"name": "Information"
+			},
+			"native": {}
+		},
+		{
+			"_id": "info.connection",
+			"type": "state",
+			"common": {
+				"name": "connected",
+				"desc": "Meraki CMX API receiver online?",
+				"type": "boolean",
+				"def": "false",
+				"read": "true",
+				"role": "value.info",
+				"write": "false"
+			},
+			"native": {}
+		},
+		{
+			"_id": "access_points",
+			"type": "channel",
+			"common": {
+				"name": "Cisco Meraki access points",
+				"desc": "Your Cisco Meraki access points."
+			},
+			"native": {}
+		},
+		{
+			"_id": "devices",
+			"type": "channel",
+			"common": {
+				"name": "WiFi devices",
+				"desc": "WiFi devices discovered by your Cisco Meraki access points."
+			},
+			"native": {}
+		},
+		{
+			"_id": "bluetoothDevices",
+			"type": "channel",
+			"common": {
+				"name": "Bluetooth devices",
+				"desc": "Bluetooth devices discovered by your Cisco Meraki access points."
+			},
+			"native": {}
+		}
+    ]
 }

@@ -10,6 +10,17 @@ const utils = require("@iobroker/adapter-core");
 
 // Load your modules here, e.g.:
 // const fs = require("fs");
+const CmxReceiver = require("./lib/cmxreceiver");
+const MerakiCmxDbConnector = require("./lib/merakiCmxDbConnector");
+
+let cmxReceiver;
+let intervalFlagStaleDevices;
+// let myAdapter;
+let scan_check_for_stale_devices = 30;
+
+// function incomingData(cmxData) {
+//     myAdapter.log.debug(JSON.stringify(cmxData));
+// }
 
 class Merakicmx extends utils.Adapter {
 
@@ -33,52 +44,63 @@ class Merakicmx extends utils.Adapter {
      */
     async onReady() {
         // Initialize your adapter here
+        // myAdapter = this;
+        MerakiCmxDbConnector.setAdapter(this);
+        scan_check_for_stale_devices = Number(this.config.scan_check_for_stale_devices) || 30;
 
-        // The adapters config (in the instance object everything under the attribute "native") is accessible via
-        // this.config:
-        this.log.info("config option1: " + this.config.option1);
-        this.log.info("config option2: " + this.config.option2);
+        // cmxReceiver = CmxReceiver(this, incomingData);
+        cmxReceiver = CmxReceiver(this, MerakiCmxDbConnector.processMerakiCmxData);
+        MerakiCmxDbConnector.setAdapterConnectionState(true);
 
-        /*
-        For every state in the system there has to be also an object of type state
-        Here a simple template for a boolean variable named "testVariable"
-        Because every adapter instance uses its own unique namespace variable names can't collide with other adapters variables
-        */
-        await this.setObjectAsync("testVariable", {
-            type: "state",
-            common: {
-                name: "testVariable",
-                type: "boolean",
-                role: "indicator",
-                read: true,
-                write: true,
-            },
-            native: {},
-        });
+        MerakiCmxDbConnector.flagStaleDevices(false);
 
-        // in this template all states changes inside the adapters namespace are subscribed
-        this.subscribeStates("*");
+        intervalFlagStaleDevices = setInterval(() => MerakiCmxDbConnector.flagStaleDevices(false), scan_check_for_stale_devices * 1000);
 
-        /*
-        setState examples
-        you will notice that each setState will cause the stateChange event to fire (because of above subscribeStates cmd)
-        */
-        // the variable testVariable is set to true as command (ack=false)
-        await this.setStateAsync("testVariable", true);
+        // // The adapters config (in the instance object everything under the attribute "native") is accessible via
+        // // this.config:
+        // this.log.info("config option1: " + this.config.option1);
+        // this.log.info("config option2: " + this.config.option2);
 
-        // same thing, but the value is flagged "ack"
-        // ack should be always set to true if the value is received from or acknowledged from the target system
-        await this.setStateAsync("testVariable", { val: true, ack: true });
+        // /*
+        // For every state in the system there has to be also an object of type state
+        // Here a simple template for a boolean variable named "testVariable"
+        // Because every adapter instance uses its own unique namespace variable names can't collide with other adapters variables
+        // */
+        // await this.setObjectAsync("testVariable", {
+        //     type: "state",
+        //     common: {
+        //         name: "testVariable",
+        //         type: "boolean",
+        //         role: "indicator",
+        //         read: true,
+        //         write: true,
+        //     },
+        //     native: {},
+        // });
 
-        // same thing, but the state is deleted after 30s (getState will return null afterwards)
-        await this.setStateAsync("testVariable", { val: true, ack: true, expire: 30 });
+        // // in this template all states changes inside the adapters namespace are subscribed
+        // this.subscribeStates("*");
 
-        // examples for the checkPassword/checkGroup functions
-        let result = await this.checkPasswordAsync("admin", "iobroker");
-        this.log.info("check user admin pw ioboker: " + result);
+        // /*
+        // setState examples
+        // you will notice that each setState will cause the stateChange event to fire (because of above subscribeStates cmd)
+        // */
+        // // the variable testVariable is set to true as command (ack=false)
+        // await this.setStateAsync("testVariable", true);
 
-        result = await this.checkGroupAsync("admin", "admin");
-        this.log.info("check group user admin group admin: " + result);
+        // // same thing, but the value is flagged "ack"
+        // // ack should be always set to true if the value is received from or acknowledged from the target system
+        // await this.setStateAsync("testVariable", { val: true, ack: true });
+
+        // // same thing, but the state is deleted after 30s (getState will return null afterwards)
+        // await this.setStateAsync("testVariable", { val: true, ack: true, expire: 30 });
+
+        // // examples for the checkPassword/checkGroup functions
+        // let result = await this.checkPasswordAsync("admin", "iobroker");
+        // this.log.info("check user admin pw ioboker: " + result);
+
+        // result = await this.checkGroupAsync("admin", "admin");
+        // this.log.info("check group user admin group admin: " + result);
     }
 
     /**
@@ -87,6 +109,14 @@ class Merakicmx extends utils.Adapter {
      */
     onUnload(callback) {
         try {
+            if (cmxReceiver) {
+                this.log.info("Shutting down Meraki CMX API receiver ...");
+                cmxReceiver.close();
+                if (intervalFlagStaleDevices) clearInterval(intervalFlagStaleDevices);
+
+                MerakiCmxDbConnector.flagStaleDevices(true);
+                MerakiCmxDbConnector.setAdapterConnectionState(false);
+            }
             this.log.info("cleaned everything up...");
             callback();
         } catch (e) {
