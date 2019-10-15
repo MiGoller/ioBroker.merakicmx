@@ -10,75 +10,64 @@
 
 **Tests:**: [![Travis-CI](http://img.shields.io/travis/MiGoller/ioBroker.merakicmx/master.svg)](https://travis-ci.org/MiGoller/ioBroker.merakicmx)
 
-## merakicmx adapter for ioBroker
+## Cisco Meraki CMX Scanning API adapter for ioBroker
 
-Describe your project here
+An ioBroker adapter for the [Cisco Meraki CMX Scanning API](https://documentation.meraki.com/MR/Monitoring_and_Reporting/Location_Analytics).
 
-## Developer manual
-This section is intended for the developer. It can be deleted later
+## Description
 
-### Getting started
+This adapter exposes a receiver for the [Cisco Meraki CMX Scanning API](https://documentation.meraki.com/MR/Monitoring_and_Reporting/Location_Analytics). The [Cisco Meraki CMX Scanning API](https://documentation.meraki.com/MR/Monitoring_and_Reporting/Location_Analytics) pushes location and analytics information for any wireless devices seen by your cloud managed [Cisco Meraki access points](https://meraki.cisco.com/products/wireless#models).
 
-You are almost done, only a few steps left:
-1. Create a new repository on GitHub with the name `ioBroker.merakicmx`
-1. Initialize the current folder as a new git repository:  
-    ```bash
-    git init
-    git add .
-    git commit -m "Initial commit"
-    ```
-1. Link your local repository with the one on GitHub:  
-    ```bash
-    git remote add origin https://github.com/MiGoller/ioBroker.merakicmx
-    ```
+Depending on the access points' feature sets the API pushes information for Wifi and bluetooth devices like BLE beacons, etc. .
 
-1. Push all files to the GitHub repo:  
-    ```bash
-    git push origin master
-    ```
-1. Head over to [main.js](main.js) and start programming!
+The adapter transforms the device information into ioBroker states. Any states will get updated typically in between 1 up to 2 minutes.
 
-### Scripts in `package.json`
-Several npm scripts are predefined for your convenience. You can run them using `npm run <scriptname>`
-| Script name | Description                                              |
-|-------------|----------------------------------------------------------|
-| `test:js`   | Executes the tests you defined in `*.test.js` files.     |
-| `test:package`    | Ensures your `package.json` and `io-package.json` are valid. |
-| `test` | Performs a minimal test run on package files and your tests. |
-| `coverage` | Generates code coverage using your test files. |
+## Installation
 
-### Writing tests
-When done right, testing code is invaluable, because it gives you the 
-confidence to change your code while knowing exactly if and when 
-something breaks. A good read on the topic of test-driven development 
-is https://hackernoon.com/introduction-to-test-driven-development-tdd-61a13bc92d92. 
-Although writing tests before the code might seem strange at first, but it has very 
-clear upsides.
+Right now you'll have to add the adapter to your ioBroker using a custom url pointing to the corresponding [GitHub](https://github.com/) repository at https://github.com/MiGoller/ioBroker.merakicmx/tree/master .
 
-The template provides you with basic tests for the adapter startup and package files.
-It is recommended that you add your own tests into the mix.
+The adapter does not incorporates any ioBroker Web or Socket adapters. The adapter creates a small dedicated web-service endpoint to be exposed to an public endpoint. 
 
-### Publishing the adapter
-See the documentation of [ioBroker.repositories](https://github.com/ioBroker/ioBroker.repositories#requirements-for-adapter-to-get-added-to-the-latest-repository).
+Read the disclaimer, please!
 
-### Test the adapter manually on a local ioBroker installation
-In order to install the adapter locally without publishing, the following steps are recommended:
-1. Create a tarball from your dev directory:  
-    ```bash
-    npm pack
-    ```
-1. Upload the resulting file to your ioBroker host
-1. Install it locally (The paths are different on Windows):
-    ```bash
-    cd /opt/iobroker
-    npm i /path/to/tarball.tgz
-    ```
+## Configuration
 
-For later updates, the above procedure is not necessary. Just do the following:
-1. Overwrite the changed files in the adapter directory (`/opt/iobroker/node_modules/iobroker.merakicmx`)
-1. Execute `iobroker upload merakicmx` on the ioBroker host
+### Setting up a reverse proxy
+Set up a reverse proxy to protect your receiver for the [Cisco Meraki CMX Scanning API](https://documentation.meraki.com/MR/Monitoring_and_Reporting/Location_Analytics) and your ioBroker installation.
+
+### Setting up the Cisco Meraki CMX Scanning API
+First of all you'll have to enable the Cisco Meraki CMX Scanning API.
+
+Login to your Cisco Meraki Dashboard and navigate to the general settings. Scroll down to ```location and analytics```.
+1. Ensure to enable ```Analytics``` and ```Scanning API```.
+2. Copy and write down the ```Validator``` phrase.
+3. Add a Post URL pointing to your public endpoint (e.g. your reverse proxy's public IP or CNAME). Enter a ```Secret```for that Post URL and select API version 2.0. Select ```WiFi```as Radio Type.
+4. Add another Post URL for your ```Bluetooth``` devices pointing to the same location as the previously added Post URL. Ensure the ```Secret``` is the same.
+
+![Logo](admin/Meraki_Dashboard_Settings.png)
+
+### Setting up the receiver
+Finally set up the receiver. 
+- Type in the ```Validator``` and the ```Secret``` you have entered in the Meraki Dashboard.
+- Select the IP, port and the route the adapter will listen on for Meraki API request.
+- The regular expressions for filtering the Wifi and Bluetooth devices have not reached production level.
+- Check if you want the receiver to report only ```connected``` WiFi devices (recommended). In that case the adapter will report only device connected to one of your SSIDs and with a valid IP-address.
+- Set the amout of time the adapter will consider a device as offline, when there's no more report.
+- Set the interval on how often to check for offline devices.
+
+![Logo](admin\ioBroker.merakicmx_Settings.png)
+
+## Disclaimer
+I strongly recommend to put the receiver in behind of a reverse proxy like [NGINX Reverse Proxy](https://docs.nginx.com/nginx/admin-guide/web-server/reverse-proxy/) or [Traefik](https://traefik.io/). Do not forget to configure HTTPS & TLS properly to encrypt any public network traffic to your reverse proxy.
+
+I strongly recommend to never expose any native ioBroker services to public endpoints. Don't do that!
+
+The Cisco Meraki wireless access points will report any WiFi device in range, even if the devices are not connected to any of your SSIDs. This is great in some situations like burglar or robbery to provide wireless fingerprints of any device around at that special point of time. But you'll get a lot devices in your database.
 
 ## Changelog
+
+### 0.1.1
+* (MiGoller) First release reporting WiFi and Bluetooth devices.
 
 ### 0.0.1
 * (MiGoller) initial release

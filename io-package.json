@@ -1,8 +1,12 @@
 {
     "common": {
         "name": "merakicmx",
-        "version": "0.0.1",
+        "version": "0.1.1",
         "news": {
+            "0.1.1": {
+                "en": "First release reporting WiFi and Bluetooth devices.",
+                "de": "Erstes Release mit Wifi- und Bluetooth-Funktionalität."
+            },
             "0.0.1": {
                 "en": "initial release",
                 "de": "Erstveröffentlichung",

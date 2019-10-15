@@ -15,12 +15,7 @@ const MerakiCmxDbConnector = require("./lib/merakiCmxDbConnector");
 
 let cmxReceiver;
 let intervalFlagStaleDevices;
-// let myAdapter;
 let scan_check_for_stale_devices = 30;
-
-// function incomingData(cmxData) {
-//     myAdapter.log.debug(JSON.stringify(cmxData));
-// }
 
 class Merakicmx extends utils.Adapter {
 
@@ -44,63 +39,15 @@ class Merakicmx extends utils.Adapter {
      */
     async onReady() {
         // Initialize your adapter here
-        // myAdapter = this;
         MerakiCmxDbConnector.setAdapter(this);
         scan_check_for_stale_devices = Number(this.config.scan_check_for_stale_devices) || 30;
 
-        // cmxReceiver = CmxReceiver(this, incomingData);
         cmxReceiver = CmxReceiver(this, MerakiCmxDbConnector.processMerakiCmxData);
         MerakiCmxDbConnector.setAdapterConnectionState(true);
 
         MerakiCmxDbConnector.flagStaleDevices(false);
 
         intervalFlagStaleDevices = setInterval(() => MerakiCmxDbConnector.flagStaleDevices(false), scan_check_for_stale_devices * 1000);
-
-        // // The adapters config (in the instance object everything under the attribute "native") is accessible via
-        // // this.config:
-        // this.log.info("config option1: " + this.config.option1);
-        // this.log.info("config option2: " + this.config.option2);
-
-        // /*
-        // For every state in the system there has to be also an object of type state
-        // Here a simple template for a boolean variable named "testVariable"
-        // Because every adapter instance uses its own unique namespace variable names can't collide with other adapters variables
-        // */
-        // await this.setObjectAsync("testVariable", {
-        //     type: "state",
-        //     common: {
-        //         name: "testVariable",
-        //         type: "boolean",
-        //         role: "indicator",
-        //         read: true,
-        //         write: true,
-        //     },
-        //     native: {},
-        // });
-
-        // // in this template all states changes inside the adapters namespace are subscribed
-        // this.subscribeStates("*");
-
-        // /*
-        // setState examples
-        // you will notice that each setState will cause the stateChange event to fire (because of above subscribeStates cmd)
-        // */
-        // // the variable testVariable is set to true as command (ack=false)
-        // await this.setStateAsync("testVariable", true);
-
-        // // same thing, but the value is flagged "ack"
-        // // ack should be always set to true if the value is received from or acknowledged from the target system
-        // await this.setStateAsync("testVariable", { val: true, ack: true });
-
-        // // same thing, but the state is deleted after 30s (getState will return null afterwards)
-        // await this.setStateAsync("testVariable", { val: true, ack: true, expire: 30 });
-
-        // // examples for the checkPassword/checkGroup functions
-        // let result = await this.checkPasswordAsync("admin", "iobroker");
-        // this.log.info("check user admin pw ioboker: " + result);
-
-        // result = await this.checkGroupAsync("admin", "admin");
-        // this.log.info("check group user admin group admin: " + result);
     }
 
     /**
