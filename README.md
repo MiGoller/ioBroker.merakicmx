@@ -55,7 +55,7 @@ Finally set up the receiver.
 - Set the amout of time the adapter will consider a device as offline, when there's no more report.
 - Set the interval on how often to check for offline devices.
 
-![Logo](admin\ioBroker.merakicmx_Settings.png)
+![Logo](admin/ioBroker.merakicmx_Settings.png)
 
 ## Disclaimer
 I strongly recommend to put the receiver in behind of a reverse proxy like [NGINX Reverse Proxy](https://docs.nginx.com/nginx/admin-guide/web-server/reverse-proxy/) or [Traefik](https://traefik.io/). Do not forget to configure HTTPS & TLS properly to encrypt any public network traffic to your reverse proxy.

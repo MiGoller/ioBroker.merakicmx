@@ -1,6 +1,6 @@
 {
   "name": "iobroker.merakicmx",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "merakicmx",
   "author": {
     "name": "MiGoller",
@@ -22,7 +22,10 @@
   },
   "dependencies": {
     "@iobroker/adapter-core": "^1.0.3",
-    "bluebird": "^3.7.0"
+    "bluebird": "^3.7.0",
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "morgan": "^1.9.1"
   },
   "devDependencies": {
     "@iobroker/testing": "^1.2.5",
