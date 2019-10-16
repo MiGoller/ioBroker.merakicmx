@@ -66,6 +66,13 @@ The Cisco Meraki wireless access points will report any WiFi device in range, ev
 
 ## Changelog
 
+### 0.1.3
+* (MiGoller) Added Meraki CMX API raw data (JSON) as status per device.
+* (MiGoller) Added integration of the Places-adapter.
+
+### 0.1.2
+* (MiGoller) Bugfix missing dependencies.
+
 ### 0.1.1
 * (MiGoller) First release reporting WiFi and Bluetooth devices.
 

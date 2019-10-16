@@ -75,13 +75,6 @@
 <body>
 
     <div class="m adapter-container">
-
-        <div class="row">
-            <div class="col s12 m4 l2">
-                <img src="merakicmx.png" class="logo">
-            </div>
-        </div>
-
         <!-- Put your content here -->
         <div class="col s12">
             <ul class="tabs">
@@ -99,40 +92,45 @@
 
         <div id="tab-main" class="col s12 page">
             <div class="row">
+                <div class="col s12 m4 l2">
+                    <img src="merakicmx.png" class="logo">
+                </div>
+            </div>
+            <div class="row">
                 <div class="col s6 input-field">
                     <input type="password" class="value" id="validator" />
-                    <label for="validator" class="translate">Meraki CMX validator:</label>
+                    <label for="validator" class="translate">CMX_VALIDATOR</label>
                 </div>
     
                 <div class="col s6 input-field">
                     <input type="password" class="value" id="secret" />
-                    <label for="secret" class="translate">Meraki CMX secret:</label>
+                    <label for="secret" class="translate">CMX_SECRET</label>
                 </div>
             </div>
     
             <div class="row">
                 <div class="input-field col s12 m8 l4">
                     <select class="value" id="bind"></select>
-                    <label class="translate" for="bind">IP:</label>
+                    <label class="translate" for="bind">CMX_BIND</label>
                 </div>
                 <div class="input-field col s12 m4 l2">
                     <input class="value" id="port" type="number" min="1024" max="65565"/>
-                    <label class="translate" for="port">Receiver port:</label>
+                    <label class="translate" for="port">CMX_PORT</label>
                 </div>
                 <div class="input-field col s12 m4 l2">
                     <input type="text" class="value" id="route" />
-                    <label for="route" class="translate">Meraki CMX route:</label>
+                    <label for="route" class="translate">CMX_ROUTE</label>
                 </div>
             </div>
 
             <div class="row">
                 <div class="input-field col s12 m4 l2">
                     <input class="value" id="scan_stale_timeout" type="number" min="30" max="300"/>
-                    <label class="translate" for="scan_stale_timeout">Timeout (sec.) to flag devices becoming stale:</label>
+                    <label class="translate" for="scan_stale_timeout">SCAN_STALE_TIMEOUT</label>
                 </div>
                 <div class="input-field col s12 m4 l2">
                     <input class="value" id="scan_check_for_stale_devices" type="number" min="1" max="1440"/>
-                    <label class="translate" for="scan_check_for_stale_devices">Interval (sec.) for checking devices becoming stale:</label>
+                    <label class="translate" for="scan_check_for_stale_devices">SCAN_CHECK_FOR_STALE_DEVICES</label>
                 </div>
             </div>
         </div>
@@ -141,33 +139,33 @@
             <div class="row">
                 <div class="input-field col s6">
                     <input type="text" class="value" id="scan_wifi_regex" />
-                    <label for="scan_wifi_regex" class="translate">WiFi device regular expression:</label>
+                    <label for="scan_wifi_regex" class="translate">SCAN_WIFI_REGEXP</label>
                 </div>
                 <div class="input-field col s6">
                     <input type="checkbox" class="value" id="scan_wifi_connectedDevicesOnly" />
-                    <label for="scan_wifi_connectedDevicesOnly" class="translate">Connected WiFi devices only?</label>
+                    <label for="scan_wifi_connectedDevicesOnly" class="translate">SCAN_WIFI_CONNECTED_DEVICES_ONLY</label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s6">
                     <input type="checkbox" class="value" id="track_location_wifi" />
-                    <label for="track_location_wifi" class="translate">Track geo positioning data?</label>
+                    <label for="track_location_wifi" class="translate">TRACK_LOCATION_WIFI</label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s6">
                     <input type="checkbox" class="value" id="sendto_places_adapter_wifi" />
-                    <label for="sendto_places_adapter_wifi" class="translate">Send geo positioning data to Places adapter?</label>
+                    <label for="sendto_places_adapter_wifi" class="translate">SENDTO_PLACES_ADAPTER_WIFI</label>
                 </div>
                 <div class="input-field col s6">
                     <input class="value" id="sendto_places_adapter_instance_wifi" type="number" min="0" max="15"/>
-                    <label class="translate" for="sendto_places_adapter_instance_wifi">Places adapter instance number:</label>
+                    <label class="translate" for="sendto_places_adapter_instance_wifi">SENDTO_PLACES_ADAPTER_INSTANCE_WIFI</label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s6">
                     <input type="checkbox" class="value" id="store_raw_data_wifi" />
-                    <label for="store_raw_data_wifi" class="translate">Store device raw data as state?</label>
+                    <label for="store_raw_data_wifi" class="translate">STORE_RAW_DATA_WIFI</label>
                 </div>
             </div>
         </div>
@@ -176,29 +174,29 @@
             <div class="row">
                 <div class="input-field col s6">
                     <input type="text" class="value" id="scan_bluetooth_regex" />
-                    <label for="scan_bluetooth_regex" class="translate">Bluetooth device regular expression:</label>
+                    <label for="scan_bluetooth_regex" class="translate">SCAN_BLUETOOTH_REGEXP</label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s6">
                     <input type="checkbox" class="value" id="track_location_bluetooth" />
-                    <label for="track_location_bluetooth" class="translate">Track geo positioning data?</label>
+                    <label for="track_location_bluetooth" class="translate">TRACK_LOCATION_BLUETOOTH</label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s6">
                     <input type="checkbox" class="value" id="sendto_places_adapter_bluetooth" />
-                    <label for="sendto_places_adapter_bluetooth" class="translate">Send geo positioning data to Places adapter?</label>
+                    <label for="sendto_places_adapter_bluetooth" class="translate">SENDTO_PLACES_ADAPTER_BLUETOOTH</label>
                 </div>
                 <div class="input-field col s6">
                     <input class="value" id="sendto_places_adapter_instance_bluetooth" type="number" min="0" max="15"/>
-                    <label class="translate" for="sendto_places_adapter_instance_bluetooth">Places adapter instance number:</label>
+                    <label class="translate" for="sendto_places_adapter_instance_bluetooth">SENDTO_PLACES_ADAPTER_INSTANCE_BLUETOOTH</label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s6">
                     <input type="checkbox" class="value" id="store_raw_data_bluetooth" />
-                    <label for="store_raw_data_bluetooth" class="translate">Store device raw data as state?</label>
+                    <label for="store_raw_data_bluetooth" class="translate">STORE_RAW_DATA_BLUETOOTH</label>
                 </div>
             </div>
         </div>

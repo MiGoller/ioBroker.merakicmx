@@ -4,16 +4,40 @@
         "version": "0.1.3",
         "news": {
             "0.1.3": {
-                "en": "Added Meraki CMX API raw data (JSON) as state per device.",
-                "de": "Meraki CMX API Rohdaten (JSON) werden als State für jedes Devices geschrieben."
+                "en": "Added Meraki CMX API raw data (JSON) as status per device. Added integration of the Places-adapter.",
+                "de": "Meraki CMX API-Rohdaten (JSON) als Status pro Gerät hinzugefügt. Integration des Places-Adapters hinzugefügt.",
+                "ru": "Добавлены необработанные данные Meraki CMX API (JSON) в качестве статуса для каждого устройства. ",
+                "pt": "Adicionados dados brutos (JSON) da API Meraki CMX como status por dispositivo. ",
+                "nl": "Meraki CMX API raw-gegevens (JSON) toegevoegd als status per apparaat. ",
+                "fr": "Ajout des données brutes de l'API Meraki CMX (JSON) en tant qu'état par périphérique. ",
+                "it": "Aggiunti dati non elaborati API Meraki CMX (JSON) come stato per dispositivo. ",
+                "es": "Se agregaron datos sin procesar (JSON) de Meraki CMX API como estado por dispositivo. ",
+                "pl": "Dodano nieprzetworzone dane Meraki CMX API (JSON) jako status na urządzenie. ",
+                "zh-cn": "添加了Meraki CMX API原始数据（JSON）作为每个设备的状态。"
             },
             "0.1.2": {
                 "en": "Bugfix missing dependencies.",
-                "de": "Fehlerbehebung fehlende Abhängigkeiten."
+                "de": "Fehlerbehebung fehlende Abhängigkeiten.",
+                "ru": "Исправлено отсутствие зависимостей.",
+                "pt": "Correção de bug em dependências ausentes.",
+                "nl": "Bugfix ontbreekt afhankelijkheden.",
+                "fr": "Corrections de bogues manquantes.",
+                "it": "Bugfix dipendenze mancanti.",
+                "es": "Bugfix faltan dependencias.",
+                "pl": "Naprawiono brakujące zależności.",
+                "zh-cn": "错误修正缺少依赖项。"
             },
             "0.1.1": {
                 "en": "First release reporting WiFi and Bluetooth devices.",
-                "de": "Erstes Release mit Wifi- und Bluetooth-Funktionalität."
+                "de": "Erstes Release mit Wifi- und Bluetooth-Funktionalität.",
+                "ru": "Первый выпуск отчетов о Wi-Fi и Bluetooth-устройствах.",
+                "pt": "Primeiro lançamento relatando dispositivos WiFi e Bluetooth.",
+                "nl": "Eerste release rapportage WiFi- en Bluetooth-apparaten.",
+                "fr": "Première version rapportant les appareils WiFi et Bluetooth.",
+                "it": "Prima versione che riporta dispositivi WiFi e Bluetooth.",
+                "es": "Primer lanzamiento que informa sobre dispositivos WiFi y Bluetooth.",
+                "pl": "Pierwsze wydanie raportujące urządzenia WiFi i Bluetooth.",
+                "zh-cn": "第一版报告WiFi和蓝牙设备。"
             },
             "0.0.1": {
                 "en": "initial release",
@@ -42,16 +66,16 @@
             "zh-cn": "Meraki CMX扫描API接收器"
         },
         "desc": {
-            "en": "merakicmx",
-            "de": "merakicmx",
-            "ru": "merakicmx",
-            "pt": "merakicmx",
-            "nl": "merakicmx",
-            "fr": "Merakicmx",
-            "it": "merakicmx",
-            "es": "merakicmx",
-            "pl": "merakicmx",
-            "zh-cn": "merakicmx"
+            "en": "This adapter receives Meraki CMX Scanning API information regarding WiFi and Bluetooth devices.",
+            "de": "Dieser Adapter empfängt Meraki CMX Scanning API-Informationen zu WLAN- und Bluetooth-Geräten.",
+            "ru": "Этот адаптер получает информацию API сканирования Meraki CMX, касающуюся устройств WiFi и Bluetooth.",
+            "pt": "Este adaptador recebe informações da API de digitalização Meraki CMX sobre dispositivos WiFi e Bluetooth.",
+            "nl": "Deze adapter ontvangt Meraki CMX Scanning API-informatie met betrekking tot WiFi en Bluetooth-apparaten.",
+            "fr": "Cet adaptateur reçoit les informations de l'API d'analyse Meraki CMX concernant les périphériques WiFi et Bluetooth.",
+            "it": "Questo adattatore riceve le informazioni sull'API di scansione Meraki CMX relative ai dispositivi WiFi e Bluetooth.",
+            "es": "Este adaptador recibe información de Meraki CMX Scanning API con respecto a dispositivos WiFi y Bluetooth.",
+            "pl": "Ten adapter odbiera informacje API skanowania Meraki CMX dotyczące urządzeń WiFi i Bluetooth.",
+            "zh-cn": "该适配器接收有关WiFi和蓝牙设备的Meraki CMX扫描API信息。"
         },
         "authors": [
             "MiGoller <goller.michael@gmail.com>"
@@ -104,53 +128,53 @@
     "objects": [],
     "instanceObjects": [
         {
-			"_id": "info",
-			"type": "channel",
-			"common": {
-				"name": "Information"
-			},
-			"native": {}
-		},
-		{
-			"_id": "info.connection",
-			"type": "state",
-			"common": {
-				"name": "connected",
-				"desc": "Meraki CMX API receiver online?",
-				"type": "boolean",
-				"def": "false",
-				"read": "true",
-				"role": "value.info",
-				"write": "false"
-			},
-			"native": {}
-		},
-		{
-			"_id": "access_points",
-			"type": "channel",
-			"common": {
-				"name": "Cisco Meraki access points",
-				"desc": "Your Cisco Meraki access points."
-			},
-			"native": {}
-		},
-		{
-			"_id": "devices",
-			"type": "channel",
-			"common": {
-				"name": "WiFi devices",
-				"desc": "WiFi devices discovered by your Cisco Meraki access points."
-			},
-			"native": {}
-		},
-		{
-			"_id": "bluetoothDevices",
-			"type": "channel",
-			"common": {
-				"name": "Bluetooth devices",
-				"desc": "Bluetooth devices discovered by your Cisco Meraki access points."
-			},
-			"native": {}
-		}
+            "_id": "info",
+            "type": "channel",
+            "common": {
+                "name": "Information"
+            },
+            "native": {}
+        },
+        {
+            "_id": "info.connection",
+            "type": "state",
+            "common": {
+                "name": "connected",
+                "desc": "Meraki CMX API receiver online?",
+                "type": "boolean",
+                "def": "false",
+                "read": "true",
+                "role": "value.info",
+                "write": "false"
+            },
+            "native": {}
+        },
+        {
+            "_id": "access_points",
+            "type": "channel",
+            "common": {
+                "name": "Cisco Meraki access points",
+                "desc": "Your Cisco Meraki access points."
+            },
+            "native": {}
+        },
+        {
+            "_id": "devices",
+            "type": "channel",
+            "common": {
+                "name": "WiFi devices",
+                "desc": "WiFi devices discovered by your Cisco Meraki access points."
+            },
+            "native": {}
+        },
+        {
+            "_id": "bluetoothDevices",
+            "type": "channel",
+            "common": {
+                "name": "Bluetooth devices",
+                "desc": "Bluetooth devices discovered by your Cisco Meraki access points."
+            },
+            "native": {}
+        }
     ]
 }
