@@ -1,8 +1,12 @@
 {
     "common": {
         "name": "merakicmx",
-        "version": "0.1.2",
+        "version": "0.1.3",
         "news": {
+            "0.1.3": {
+                "en": "Added Meraki CMX API raw data (JSON) as state per device.",
+                "de": "Meraki CMX API Rohdaten (JSON) werden als State für jedes Devices geschrieben."
+            },
             "0.1.2": {
                 "en": "Bugfix missing dependencies.",
                 "de": "Fehlerbehebung fehlende Abhängigkeiten."
@@ -87,7 +91,15 @@
         "scan_wifi_regex": "",
         "scan_bluetooth_regex": "",
         "scan_stale_timeout": 150,
-        "scan_check_for_stale_devices": 15
+        "scan_check_for_stale_devices": 15,
+        "track_location_wifi": false,
+        "track_location_bluetooth": false,
+        "sendto_places_adapter_wifi": false,
+        "sendto_places_adapter_instance_wifi": 0,
+        "sendto_places_adapter_bluetooth": false,
+        "sendto_places_adapter_instance_bluetooth": 0,
+        "store_raw_data_wifi": false,
+        "store_raw_data_bluetooth": false
     },
     "objects": [],
     "instanceObjects": [
