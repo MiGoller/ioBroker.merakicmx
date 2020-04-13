@@ -43,7 +43,11 @@ class Merakicmx extends utils.Adapter {
         scan_check_for_stale_devices = Number(this.config.scan_check_for_stale_devices) || 30;
 
         cmxReceiver = CmxReceiver(this, MerakiCmxDbConnector.processMerakiCmxData);
-        MerakiCmxDbConnector.setAdapterConnectionState(true);
+
+        // Issue #19: Verify the connection to Meraki API
+        //      MerakiCmxDbConnector.processMerakiCmxData() will manage the adapter's connection state.
+        // MerakiCmxDbConnector.setAdapterConnectionState(true);
+        this.log.info("Waiting for first Meraki CMX API data delivery ...");
 
         MerakiCmxDbConnector.flagStaleDevices(false);
 

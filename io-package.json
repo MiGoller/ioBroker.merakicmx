@@ -1,8 +1,20 @@
 {
     "common": {
         "name": "merakicmx",
-        "version": "0.1.3",
+        "version": "0.2.1",
         "news": {
+            "0.2.1": {
+                "en": "Enhancement issue #4: Verify the connection to Meraki API. Some minor bugfixes and enhancements.",
+                "de": "Verbesserung Issue Nr. 4: Überprüfen Sie die Verbindung zur Meraki-API. ",
+                "ru": "Проблема № 4: Проверьте соединение с Meraki API. ",
+                "pt": "Problema de aprimoramento nº 4: verifique a conexão com a API Meraki. ",
+                "nl": "Verbeteringsprobleem # 4: Controleer de verbinding met Meraki API. ",
+                "fr": "Problème d'amélioration n ° 4: vérifiez la connexion à l'API Meraki. ",
+                "it": "Problema di miglioramento n. 4: verifica della connessione all'API Meraki. ",
+                "es": "Problema de mejora # 4: Verifique la conexión a la API de Meraki. ",
+                "pl": "Ulepszenie numer 4: Sprawdź połączenie z Meraki API. ",
+                "zh-cn": "增强问题4：验证与Meraki API的连接。"
+            },
             "0.1.3": {
                 "en": "Added Meraki CMX API raw data (JSON) as status per device. Added integration of the Places-adapter.",
                 "de": "Meraki CMX API-Rohdaten (JSON) als Status pro Gerät hinzugefügt. Integration des Places-Adapters hinzugefügt.",
