@@ -66,6 +66,10 @@ The Cisco Meraki wireless access points will report any WiFi device in range, ev
 
 ## Changelog
 
+### 0.2.1
+* (MiGoller) Enhancement issue #4: Verify the connection to Meraki API. Thx to rookie50 for submitting feedback.
+* (MiGoller) Some minor bugfixes and enhancements.
+
 ### 0.1.3
 * (MiGoller) Added Meraki CMX API raw data (JSON) as status per device.
 * (MiGoller) Added integration of the Places-adapter.
