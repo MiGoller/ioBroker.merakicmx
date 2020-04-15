@@ -17,13 +17,13 @@ An ioBroker adapter for the [Cisco Meraki CMX Scanning API](https://documentatio
 
 This adapter exposes a receiver for the [Cisco Meraki CMX Scanning API](https://documentation.meraki.com/MR/Monitoring_and_Reporting/Location_Analytics). The [Cisco Meraki CMX Scanning API](https://documentation.meraki.com/MR/Monitoring_and_Reporting/Location_Analytics) pushes location and analytics information for any wireless devices seen by your cloud managed [Cisco Meraki access points](https://meraki.cisco.com/products/wireless#models).
 
-Depending on the access points' feature sets the API pushes information for Wifi and bluetooth devices like BLE beacons, etc. .
+Depending on the access points' feature sets the API pushes information for Wifi and Bluetooth devices like BLE beacons, etc. .
 
 The adapter transforms the device information into ioBroker states. Any states will get updated typically in between 1 up to 2 minutes.
 
 ## Installation
 
-Right now you'll have to add the adapter to your ioBroker using a custom url pointing to the corresponding [GitHub](https://github.com/) repository at https://github.com/MiGoller/ioBroker.merakicmx/tree/master .
+Right now you'll have to add the adapter to your ioBroker using a custom URL pointing to the corresponding [GitHub](https://github.com/) repository at https://github.com/MiGoller/ioBroker.merakicmx/tree/master .
 
 The adapter does not incorporates any ioBroker Web or Socket adapters. The adapter creates a small dedicated web-service endpoint to be exposed to an public endpoint. 
 
@@ -68,7 +68,7 @@ Finally set up the receiver.
 - Select the IP, port and the route the adapter will listen on for Meraki API request.
 - The regular expressions for filtering the Wifi and Bluetooth devices have not reached production level.
 - Check if you want the receiver to report only ```connected``` WiFi devices (recommended). In that case the adapter will report only device connected to one of your SSIDs and with a valid IP-address.
-- Set the amout of time the adapter will consider a device as offline, when there's no more report.
+- Set the amount of time the adapter will consider a device as offline, when there's no more report.
 - Set the interval on how often to check for offline devices.
 
 ![Logo](admin/ioBroker.merakicmx_Settings.png)
