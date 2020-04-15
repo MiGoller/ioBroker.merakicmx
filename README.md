@@ -1,14 +1,13 @@
 ![Logo](admin/merakicmx.png)
 # ioBroker.merakicmx
 
-[![NPM version](http://img.shields.io/npm/v/iobroker.merakicmx.svg)](https://www.npmjs.com/package/iobroker.merakicmx)
+[![NPM version](https://img.shields.io/npm/v/iobroker.merakicmx.svg)](https://www.npmjs.com/package/iobroker.merakicmx)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.merakicmx.svg)](https://www.npmjs.com/package/iobroker.merakicmx)
 [![Dependency Status](https://img.shields.io/david/MiGoller/iobroker.merakicmx.svg)](https://david-dm.org/MiGoller/iobroker.merakicmx)
 [![Known Vulnerabilities](https://snyk.io/test/github/MiGoller/ioBroker.merakicmx/badge.svg)](https://snyk.io/test/github/MiGoller/ioBroker.merakicmx)
+[![Travis-CI](https://img.shields.io/travis/MiGoller/ioBroker.merakicmx/master.svg)](https://travis-ci.org/MiGoller/ioBroker.merakicmx)
 
 [![NPM](https://nodei.co/npm/iobroker.merakicmx.png?downloads=true)](https://nodei.co/npm/iobroker.merakicmx/)
-
-**Tests:**: [![Travis-CI](http://img.shields.io/travis/MiGoller/ioBroker.merakicmx/master.svg)](https://travis-ci.org/MiGoller/ioBroker.merakicmx)
 
 ## Cisco Meraki CMX Scanning API adapter for ioBroker
 
@@ -29,6 +28,23 @@ Right now you'll have to add the adapter to your ioBroker using a custom url poi
 The adapter does not incorporates any ioBroker Web or Socket adapters. The adapter creates a small dedicated web-service endpoint to be exposed to an public endpoint. 
 
 Read the disclaimer, please!
+
+### Install the Node JS package on the command line
+
+If you don't want to install the adapter using the web UI or if you want to install a special version, including development version, you can do so on the command line.
+
+1. Login to your ioBroker host
+2. Switch to ioBroker's installation directory (defaults to `/opt/iobroker`)
+3. Run the following commands
+    ```
+    	iobroker npm install migoller/iobroker.merakicmx --loglevel error --prefix "/opt/iobroker"
+    ```
+4. Add an instance using the web UI
+
+If you want to install the development version just type ...
+```
+	iobroker npm install migoller/iobroker.merakicmx#develop --loglevel error --prefix "/opt/iobroker"
+```
 
 ## Configuration
 
@@ -66,6 +82,10 @@ The Cisco Meraki wireless access points will report any WiFi device in range, ev
 
 ## Changelog
 
+### 0.2.2
+* (MiGoller) Bugfix for issue #8: Check Adapter with js-controller 3.0.x.
+* (MiGoller) Updated packages and dependencies.
+
 ### 0.2.1
 * (MiGoller) Enhancement issue #4: Verify the connection to Meraki API. Thx to rookie50 for submitting feedback.
 * (MiGoller) Some minor bugfixes and enhancements.
@@ -86,7 +106,7 @@ The Cisco Meraki wireless access points will report any WiFi device in range, ev
 ## License
 MIT License
 
-Copyright (c) 2019 MiGoller <goller.michael@gmail.com>
+Copyright (c) 2019-2020 MiGoller <goller.michael@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

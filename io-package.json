@@ -1,8 +1,11 @@
 {
     "common": {
         "name": "merakicmx",
-        "version": "0.2.1",
+        "version": "0.2.2",
         "news": {
+            "0.2.2": {
+                "en": "Bugfix issue #8: Check Adapter with js-controller 3.0.x"
+            },
             "0.2.1": {
                 "en": "Enhancement issue #4: Verify the connection to Meraki API. Some minor bugfixes and enhancements.",
                 "de": "Verbesserung Issue Nr. 4: Überprüfen Sie die Verbindung zur Meraki-API. ",
@@ -154,10 +157,10 @@
                 "name": "connected",
                 "desc": "Meraki CMX API receiver online?",
                 "type": "boolean",
-                "def": "false",
-                "read": "true",
+                "def": false,
+                "read": true,
                 "role": "value.info",
-                "write": "false"
+                "write": false
             },
             "native": {}
         },
