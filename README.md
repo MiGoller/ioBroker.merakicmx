@@ -82,6 +82,13 @@ The Cisco Meraki wireless access points will report any WiFi device in range, ev
 
 ## Changelog
 
+### 0.2.4
+* (MiGoller) Bump lodash from 4.17.15 to 4.17.19
+* (MiGoller) Upgraded several packages to wanted versions.
+
+### 0.2.3
+* (MiGoller) Bugfix issue #10: Adapter is flapping
+
 ### 0.2.2
 * (MiGoller) Bugfix for issue #8: Check Adapter with js-controller 3.0.x.
 * (MiGoller) Updated packages and dependencies.

@@ -1,8 +1,20 @@
 {
     "common": {
         "name": "merakicmx",
-        "version": "0.2.3",
+        "version": "0.2.4",
         "news": {
+            "0.2.4": {
+                "en": "Upgraded several packages to wanted versions.",
+                "de": "Mehrere Pakete wurden auf die gewünschten Versionen aktualisiert.",
+                "ru": "Обновил несколько пакетов до желаемых версий.",
+                "pt": "Vários pacotes atualizados para as versões desejadas.",
+                "nl": "Meerdere pakketten geüpgraded naar gewenste versies.",
+                "fr": "Mise à niveau de plusieurs packages vers les versions souhaitées.",
+                "it": "Aggiornati diversi pacchetti alle versioni desiderate.",
+                "es": "Se actualizaron varios paquetes a las versiones deseadas.",
+                "pl": "Zaktualizowałem kilka pakietów do pożądanych wersji.",
+                "zh-cn": "将几个软件包升级到所需版本。"
+            },
             "0.2.3": {
                 "en": "Bugfix issue #10: Adapter is flapping",
                 "de": "Bugfix-Problem Nr. 10: Adapter flattert",
