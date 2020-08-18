@@ -1,10 +1,43 @@
 {
     "common": {
         "name": "merakicmx",
-        "version": "0.2.2",
+        "version": "0.2.4",
         "news": {
+            "0.2.4": {
+                "en": "Upgraded several packages to wanted versions.",
+                "de": "Mehrere Pakete wurden auf die gewünschten Versionen aktualisiert.",
+                "ru": "Обновил несколько пакетов до желаемых версий.",
+                "pt": "Vários pacotes atualizados para as versões desejadas.",
+                "nl": "Meerdere pakketten geüpgraded naar gewenste versies.",
+                "fr": "Mise à niveau de plusieurs packages vers les versions souhaitées.",
+                "it": "Aggiornati diversi pacchetti alle versioni desiderate.",
+                "es": "Se actualizaron varios paquetes a las versiones deseadas.",
+                "pl": "Zaktualizowałem kilka pakietów do pożądanych wersji.",
+                "zh-cn": "将几个软件包升级到所需版本。"
+            },
+            "0.2.3": {
+                "en": "Bugfix issue #10: Adapter is flapping",
+                "de": "Bugfix-Problem Nr. 10: Adapter flattert",
+                "ru": "Исправлена ​​проблема № 10: Адаптер колеблется",
+                "pt": "Bugfix issue # 10: O adaptador está batendo",
+                "nl": "Bugfix probleem # 10: Adapter klappert",
+                "fr": "Problème de correction de bug # 10: l'adaptateur claque",
+                "it": "Problema numero 10: la scheda si sta sbattendo",
+                "es": "Problema de corrección de errores # 10: el adaptador está aleteando",
+                "pl": "Bugfix nr 10: Adapter trzepocze",
+                "zh-cn": "错误修正问题10：转接器震荡"
+            },
             "0.2.2": {
-                "en": "Bugfix issue #8: Check Adapter with js-controller 3.0.x"
+                "en": "Bugfix issue #8: Check Adapter with js-controller 3.0.x",
+                "de": "Bugfix-Problem Nr. 8: Überprüfen Sie den Adapter mit js-controller 3.0.x.",
+                "ru": "Исправленная проблема № 8: Проверьте адаптер с помощью js-controller 3.0.x",
+                "pt": "Bugfix issue # 8: Verifique o adaptador com o js-controller 3.0.x",
+                "nl": "Bugfix probleem # 8: Controleer adapter met js-controller 3.0.x",
+                "fr": "Problème de correction de bug # 8: Vérifiez l'adaptateur avec js-controller 3.0.x",
+                "it": "Problema numero 8: verifica dell'adattatore con js-controller 3.0.x",
+                "es": "Problema de corrección de errores # 8: Verifique el adaptador con js-controller 3.0.x",
+                "pl": "Problem z poprawką nr 8: Sprawdź adapter za pomocą kontrolera js 3.0.x",
+                "zh-cn": "错误修正问题＃8：使用js-controller 3.0.x检查适配器"
             },
             "0.2.1": {
                 "en": "Enhancement issue #4: Verify the connection to Meraki API. Some minor bugfixes and enhancements.",
