@@ -1,8 +1,20 @@
 {
     "common": {
         "name": "merakicmx",
-        "version": "0.2.4",
+        "version": "0.2.5",
         "news": {
+            "0.2.5": {
+                "en": "Updated README.md",
+                "de": "README.md wurde aktualisiert",
+                "ru": "Обновлен README.md",
+                "pt": "README.md atualizado",
+                "nl": "Bijgewerkt README.md",
+                "fr": "README.md mis à jour",
+                "it": "README.md aggiornato",
+                "es": "README.md actualizado",
+                "pl": "Zaktualizowany plik README.md",
+                "zh-cn": "更新了README.md"
+            },
             "0.2.4": {
                 "en": "Upgraded several packages to wanted versions.",
                 "de": "Mehrere Pakete wurden auf die gewünschten Versionen aktualisiert.",
