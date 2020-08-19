@@ -82,6 +82,12 @@ The Cisco Meraki wireless access points will report any WiFi device in range, ev
 
 ## Changelog
 
+### 0.2.6
+* (MiGoller) Updated README.md and LICENSE files
+
+### 0.2.5
+* (MiGoller) Updated README.md
+
 ### 0.2.4
 * (MiGoller) Bump lodash from 4.17.15 to 4.17.19
 * (MiGoller) Upgraded several packages to wanted versions.
