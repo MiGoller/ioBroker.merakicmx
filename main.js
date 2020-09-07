@@ -14,8 +14,39 @@ const CmxReceiver = require("./lib/cmxreceiver");
 const MerakiCmxDbConnector = require("./lib/merakiCmxDbConnector");
 
 let cmxReceiver;
-let intervalFlagStaleDevices;
+// let intervalFlagStaleDevices;
+let timeoutFlagStaleDevices;
 let scan_check_for_stale_devices = 30;
+let isUnloading = true;
+
+/**
+ * Check for stale devices and reschedule further checks
+ * @param {*} seconds Amout of time in seconds after the adapter will initiate the next check
+ * @param {*} adapterInstance The adapter instance for logging
+ */
+function checkForStaleDevices(seconds, adapterInstance) {
+    try {
+        // Ensure the adapter does not shut down before checking for stale devices.
+        if (!isUnloading) {
+            MerakiCmxDbConnector.flagStaleDevices(false);
+            // Ensure the adapter still does not shut down before requesting new schedule.
+            if (!isUnloading) {
+                timeoutFlagStaleDevices = setTimeout(() => checkForStaleDevices(seconds, adapterInstance), seconds * 1000);
+            }
+            else {
+                // Skip to schedule further check for stale devices, because the adapter is schutting down.
+                if (adapterInstance) adapterInstance.log.debug("Will skip to reschedule a further check for stale devices, because the adapter is shutting down.");
+            }
+        }
+        else {
+            // Skip to check for stale devices, because the adapter is schutting down.
+            if (adapterInstance) adapterInstance.log.debug("Will skip to check for stale devices triggered by schedule, because the adapter is shutting down.");
+        }
+    } catch (error) {
+        //  Error occured.
+        if (adapterInstance) adapterInstance.log.error(error);
+    }
+}
 
 class Merakicmx extends utils.Adapter {
 
@@ -46,9 +77,15 @@ class Merakicmx extends utils.Adapter {
         // MerakiCmxDbConnector.setAdapterConnectionState(true);
         this.log.info("Waiting for first Meraki CMX API data delivery ...");
 
-        MerakiCmxDbConnector.flagStaleDevices(false);
+        // Adapter is up and running
+        isUnloading = false;
 
-        intervalFlagStaleDevices = setInterval(() => MerakiCmxDbConnector.flagStaleDevices(false), scan_check_for_stale_devices * 1000);
+        // Switch form interval to timeout
+        // better use timeout instead of interval to avoid multiple running processes (only start new time when previous action is completed)
+        // Thanks to DutchmanNL: https://github.com/ioBroker/ioBroker.repositories/pull/886#issuecomment-688484230
+        // MerakiCmxDbConnector.flagStaleDevices(false);
+        // intervalFlagStaleDevices = setInterval(() => MerakiCmxDbConnector.flagStaleDevices(false), scan_check_for_stale_devices * 1000);
+        checkForStaleDevices(scan_check_for_stale_devices, this);
     }
 
     /**
@@ -60,7 +97,8 @@ class Merakicmx extends utils.Adapter {
             if (cmxReceiver) {
                 this.log.info("Shutting down Meraki CMX API receiver ...");
                 cmxReceiver.close();
-                if (intervalFlagStaleDevices) clearInterval(intervalFlagStaleDevices);
+                // if (intervalFlagStaleDevices) clearInterval(intervalFlagStaleDevices);
+                if (timeoutFlagStaleDevices) clearTimeout(timeoutFlagStaleDevices);
 
                 MerakiCmxDbConnector.flagStaleDevices(true);
                 MerakiCmxDbConnector.setAdapterConnectionState(false);
