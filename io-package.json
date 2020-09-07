@@ -1,10 +1,31 @@
 {
     "common": {
         "name": "merakicmx",
-        "version": "0.2.6",
+        "version": "0.2.7",
         "news": {
+            "0.2.7": {
+                "en": "Removed unneeded code and replaced intervals by timeouts to avoid multiple running processes.",
+                "de": "Nicht benötigter Code wurde entfernt und Intervalle durch Zeitüberschreitungen ersetzt, um mehrere laufende Prozesse zu vermeiden.",
+                "ru": "Удален ненужный код и заменены интервалы на тайм-ауты, чтобы избежать нескольких запущенных процессов.",
+                "pt": "Código desnecessário removido e intervalos substituídos por tempos limite para evitar vários processos em execução.",
+                "nl": "Onnodige code verwijderd en intervallen vervangen door time-outs om meerdere actieve processen te vermijden.",
+                "fr": "Suppression du code inutile et remplacement des intervalles par des délais d'expiration pour éviter plusieurs processus en cours d'exécution.",
+                "it": "Codice non necessario rimosso e intervalli sostituiti da timeout per evitare più processi in esecuzione.",
+                "es": "Se eliminó el código innecesario y se reemplazaron los intervalos por tiempos de espera para evitar múltiples procesos en ejecución.",
+                "pl": "Usunięto niepotrzebny kod i zastąpiono interwały limitami czasu, aby uniknąć wielu uruchomionych procesów.",
+                "zh-cn": "删除了不需要的代码，并用超时替换了间隔，以避免多个正在运行的进程。"
+            },
             "0.2.6": {
-                "en": "Updated README.md and LICENSE files"
+                "en": "Updated README.md and LICENSE files",
+                "de": "Aktualisierte README.md- und LICENSE-Dateien",
+                "ru": "Обновлены файлы README.md и LICENSE.",
+                "pt": "Arquivos README.md e LICENSE atualizados",
+                "nl": "Bijgewerkt README.md en LICENSE bestanden",
+                "fr": "Fichiers README.md et LICENSE mis à jour",
+                "it": "File README.md e LICENSE aggiornati",
+                "es": "Archivos README.md y LICENSE actualizados",
+                "pl": "Zaktualizowane pliki README.md i LICENSE",
+                "zh-cn": "更新了README.md和LICENSE文件"
             },
             "0.2.5": {
                 "en": "Updated README.md",

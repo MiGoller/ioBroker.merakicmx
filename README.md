@@ -82,6 +82,9 @@ The Cisco Meraki wireless access points will report any WiFi device in range, ev
 
 ## Changelog
 
+### 0.2.7
+* (MiGoller) Removed unneeded code and replaced intervals by timeouts to avoid multiple running processes.
+
 ### 0.2.6
 * (MiGoller) Updated README.md and LICENSE files
 
